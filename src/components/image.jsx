@@ -1,24 +1,21 @@
 import React from "react";
 
-const Image = ({ src, alt = src, style, ...rest }) => {
-  let imageData;
-  try {
-    imageData = import(`../images/${src}`).default;
-  } catch (error) {
-    //
-  }
+const Image = ({ src, style }) => {
+  // let imageData;
+
+  console.log(src);
 
   return (
     <img
-      alt={alt}
-      srcSet={imageData + " 2x"}
+      // alt={alt}
+      // srcSet={imageData + " 2x"}
+      src={src}
       style={{
         display: "inline-block",
         verticalAlign: "middle",
         margin: 0,
         ...style,
       }}
-      {...rest}
     />
   );
 };

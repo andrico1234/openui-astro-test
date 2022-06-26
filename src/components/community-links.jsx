@@ -1,17 +1,15 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons";
 
-export default function CommunityLinks({ githubURL, className = "" }) {
+export default function CommunityLinks({ className = "" }) {
   return (
     <div className={"community-links " + className}>
       <a
-        href={githubURL}
+        href="https://github.com/openui/open-ui"
         target="_blank"
         rel="noreferrer noopener"
         style={{ color: "inherit" }}
       >
-        <FontAwesomeIcon style={{ marginRight: "0.2em" }} icon={faGithub} />
+        {/* <FontAwesomeIcon style={{ marginRight: "0.2em" }} icon={faGithub} /> */}
         GitHub
       </a>
 
@@ -21,10 +19,6 @@ export default function CommunityLinks({ githubURL, className = "" }) {
         rel="noreferrer noopener"
         style={{ color: "inherit" }}
       >
-        {/* <FontAwesomeIcon
-          style={{ marginRight: "0.2em", marginLeft: "1em" }}
-          icon={faDiscord}
-        /> */}
         Discord
       </a>
     </div>

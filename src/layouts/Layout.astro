@@ -1,0 +1,20 @@
+---
+import React from "react";
+import BaseLayout from "./BaseLayout.astro";
+import Header from "../components/header";
+import Navigation from "../components/navigation.astro";
+---
+
+<BaseLayout>
+  <div>
+    <Header />
+    <div class="page-wrapper">
+      <Navigation />
+
+
+      <main class="page-content">
+        <slot />
+      </main>
+    </div>
+  </div>
+</BaseLayout>

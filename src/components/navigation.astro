@@ -1,0 +1,59 @@
+---
+import _ from "lodash";
+import CommunityLinks from "./community-links";
+
+const posts = await Astro.glob('../pages/**/*.md');
+const allFrontmatter = posts.map((post) => post.frontmatter);
+const frontmatterForNav = allFrontmatter.filter(({ name }) => !!name).filter(({ showInMenu }) => showInMenu !== false);
+const [menuNodes, topLevelNodes] = _.partition(frontmatterForNav, "menu");
+const sortedMenuNodes = _.sortBy(menuNodes, ["name"]);
+const menu = _.sortBy(_.toPairs(_.groupBy(sortedMenuNodes, "menu")), _.first);
+
+---
+
+<nav id="site-nav" class={true ? "opened" : "" }>
+  <CommunityLinks className={"mobile"} />
+
+  <div>
+    <div>
+      <a href="/">
+        Home
+      </a>
+    </div>
+
+    <ul style={{ margin: "0.25em 0 1.5em 0" }}>
+      {topLevelNodes.map(item => {
+      return (
+      <li key={item.name} style={{ margin: 0, listStyleType: "none" , }}>
+        <a href={item.path} style={{ display: "block" , padding: "0.25em 1em 0.25em 0.5em" , margin: 0, color: "inherit"
+          , borderLeft: "2px solid transparent" , borderRadius: "2px" , whiteSpace: "nowrap" , }} activeStyle={{
+          borderLeftColor: "#00a453" , backgroundColor: "#f2f2f2" , }}>
+          {item.name}
+        </a>
+      </li>
+      )
+      })}
+    </ul>
+
+    <div style={{ margin: "1rem" }} />
+
+    {menu.map(([category, items]) => (
+    <div key={category} style={{ margin: 0, listStyleType: "none" }}>
+      <h3> {category} </h3>
+      <ul style={{ margin: "0.25em 0 1.5em 0" }}>
+        {items.map(item => {
+        return (
+        <li key={item.name} style={{ margin: 0, listStyleType: "none" , }}>
+          <a href={item.path} style={{ display: "block" , padding: "0.25em 1em 0.25em 0.5em" , margin: 0,
+            color: "inherit" , borderLeft: "2px solid transparent" , borderRadius: "2px" , whiteSpace: "nowrap" , }}
+            activeStyle={{ borderLeftColor: "#00a453" , backgroundColor: "#f2f2f2" , }}>
+            {item.name}
+          </a>
+        </li>
+        )
+        })}
+      </ul>
+    </div>
+    ))}
+  </div>
+</nav>

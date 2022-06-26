@@ -1,54 +1,48 @@
 import React from "react";
 import CommunityLinks from "./community-links";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Logo from "./logo";
-// import CommunityLinks from "./community-links";
+import BarsIcon from "../icons/bars";
 
-const Header = ({
-  siteTitle = "",
-  githubURL = "https://github.com/openui/open-ui",
-  menuOpened,
-  onToggleMenu,
-}) => (
-  <header
-    style={{
-      background: "#333",
-      marginBottom: "2rem",
-      color: "#eee",
-    }}
-  >
-    <div
+const Header = ({ siteTitle = "" }) => {
+  return (
+    <header
       style={{
-        display: "flex",
-        padding: "1rem",
-        margin: "0 auto",
-        maxWidth: 1200,
-        width: "100%",
-        justifyItems: "space-between",
-        alignItems: "center",
+        background: "#333",
+        marginBottom: "2rem",
+        color: "#eee",
       }}
     >
-      <span style={{ flex: 1 }}>
-        <Logo siteTitle={siteTitle} />
-      </span>
-
-      {/* <CommunityLinks githubURL={githubURL} /> */}
-
-      <button
-        type="button"
-        className="header-menu-btn"
-        aria-label="Toggle menu"
-        title="Toggle menu"
-        onClick={onToggleMenu}
-        aria-expanded={menuOpened ? "true" : "false"}
-        aria-controls="site-nav"
+      <div
+        style={{
+          display: "flex",
+          padding: "1rem",
+          margin: "0 auto",
+          maxWidth: 1200,
+          width: "100%",
+          justifyItems: "space-between",
+          alignItems: "center",
+        }}
       >
-        <p>I</p>
-        {/* <FontAwesomeIcon icon={faBars} size="lg" /> */}
-      </button>
-    </div>
-  </header>
-);
+        <span style={{ flex: 1 }}>
+          <Logo siteTitle={siteTitle} />
+        </span>
+
+        <CommunityLinks />
+
+        <button
+          type="button"
+          className="header-menu-btn"
+          aria-label="Toggle menu"
+          title="Toggle menu"
+          // onClick={onToggleMenu}
+          // aria-expanded={menuOpened ? "true" : "false"}
+          aria-controls="site-nav"
+        >
+          <BarsIcon width={16} />
+        </button>
+      </div>
+    </header>
+  );
+};
 
 export default Header;
