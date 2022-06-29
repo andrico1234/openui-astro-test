@@ -1,12 +1,10 @@
 import _ from "lodash";
 import React from "react";
 
-// import { anatomiesByComponent } from "../sources";
+import { anatomiesByComponent } from "../sources/index";
 
 const Anatomy = ({ component }) => {
-  // const anatomy = anatomiesByComponent[component];
-
-  const anatomy = [{ name: "Hey" }, { name: "There" }];
+  const anatomy = anatomiesByComponent[component];
 
   if (_.isEmpty(anatomy)) {
     return (
