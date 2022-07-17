@@ -66,6 +66,8 @@ const Concepts = ({ component }) => {
         const uniqueNames = _.uniq(_.map(concepts, "name"));
         // const hasOtherNames = uniqueNames.length > 1;
 
+        
+
         return <div key={conceptOpenUIName}>{uniqueNames.toString()}</div>;
       })}
     </>

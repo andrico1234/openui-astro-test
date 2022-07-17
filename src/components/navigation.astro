@@ -1,6 +1,6 @@
 ---
 import _ from "lodash";
-import CommunityLinks from "./community-links";
+import CommunityLinks from "./community-links.astro";
 
 const posts = await Astro.glob('../pages/**/*.md');
 const allFrontmatter = posts.map((post) => post.frontmatter);
@@ -12,7 +12,7 @@ const menu = _.sortBy(_.toPairs(_.groupBy(sortedMenuNodes, "menu")), _.first);
 ---
 
 <nav id="site-nav" class={true ? "opened" : "" }>
-  <CommunityLinks className={"mobile"} />
+  <CommunityLinks classNames="mobile" />
 
   <div>
     <div>

@@ -1,0 +1,48 @@
+---
+import { Icon } from 'astro-icon'
+
+
+const { classNames } = Astro.props;
+---
+
+<div class={`community-links ${classNames}`}>
+  <a href="https://github.com/openui/open-ui" target="_blank" rel="noreferrer noopener">
+    <Icon name="bi:github" />
+    GitHub
+  </a>
+
+  <a href="https://discord.gg/DEWjhSw" target="_blank" rel="noreferrer noopener">
+    <Icon name="bi:discord" />
+    Discord
+  </a>
+</div>
+
+<style>
+  a {
+    color: inherit
+  }
+
+  svg {
+    width: 1.25em;
+  }
+
+  .community-links {
+    display: block;
+  }
+
+  .community-links.mobile {
+    display: none;
+    justify-content: space-around;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .community-links {
+      display: none;
+    }
+
+    .community-links.mobile {
+      display: flex;
+    }
+  }
+</style>

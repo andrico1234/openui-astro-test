@@ -1,0 +1,54 @@
+---
+import CommunityLinks from "./community-links.astro";
+import Logo from "./logo";
+import Icon from 'astro-icon';
+import BarsIcon from "../icons/bars";
+
+export const siteTitle = ''
+export const onToggleMenu = () => null;
+export const menuOpened = false;
+---
+
+<header>
+  <div>
+    <span class="logo-wrapper">
+      <Logo siteTitle={siteTitle} />
+    </span>
+
+    <CommunityLinks />
+
+    <button type="button" class="header-menu-btn" aria-label="Toggle menu" title="Toggle menu" onclick={onToggleMenu}
+      aria-expanded={menuOpened ? "true" : "false" } aria-controls="site-nav">
+      <span>
+
+        <Icon width={16} name="bi:discord" />
+      </span>
+    </button>
+  </div>
+</header>
+
+<style>
+  header {
+    background: #333;
+    margin-bottom: 2rem;
+    color: #eee
+  }
+
+  header>div {
+    display: flex;
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 1200;
+    width: 100%;
+    justify-items: space-between;
+    align-items: center;
+  }
+
+  .logo-wrapper {
+    flex: 1
+  }
+
+  .header-menu-btn span {
+    width: 16px
+  }
+</style>

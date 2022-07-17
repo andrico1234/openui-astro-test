@@ -3,8 +3,6 @@ import React from "react";
 const Image = ({ src, style }) => {
   // let imageData;
 
-  console.log(src);
-
   return (
     <img
       // alt={alt}
